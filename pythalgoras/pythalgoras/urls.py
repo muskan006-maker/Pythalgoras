@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from pythalgoras.views import firstfunction
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('hello/', firstfunction),
 ]
