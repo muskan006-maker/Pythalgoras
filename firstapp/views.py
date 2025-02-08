@@ -3,6 +3,7 @@
 # Date :- 07/02/2025
 from django.shortcuts import render
 from django.http import HttpResponse
+
  
  
 def firstappview(request):
@@ -25,3 +26,6 @@ def fourthview(request):
      analyze data, recognize patterns, and make informed decisions.
     """
     return HttpResponse(myhtml)
+def fifthview(request):  # Ensure this matches the reference in urls.py
+    context = {'name': 'Muskan'}
+    return render(request, 'firstapp/introduction_to_ai.html', context)
