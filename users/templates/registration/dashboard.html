@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pythalgoras</title>
+</head>
+<body>
+<h1>Pythalgoras</h1>
+{% block content %}   
+  {%if user.is_authenticated%}
+        Hello, {{user.username}} </br>
+        <p> Congratulations ! You’ve successfully logged in </n>
+         {% include "registration/logout.html" %}
+         <a href="{% url 'password_change' %}">Change password</a>
+
+  {%else%}
+        <ul>
+        <li><a href="{% url 'login'%}">Login</a></li>
+        <li>Not a member yet? <a href="{% url 'signup'%}">Sign Up<a></li>
+        </ul>
+	Hello, Guest <br>
+  {% endif %}
+{% endblock content %}
+</body>
+</html>
+
