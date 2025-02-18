@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from.import views
 from django.urls import include 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('hello/',Pythalgoras),
+   # path('hello/',Pythalgoras),
     path('firstapp/',include("firstapp.urls")),
+    #path('dashboard/', views.dashboard, name='dashboard'),
+    path('' ,include("users.urls")),
+  
 ]
+        

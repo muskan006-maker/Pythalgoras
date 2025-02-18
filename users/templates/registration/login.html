@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <meta charset="UTF-8">  
- <title>Pythalgoras Login</title> 
+
+<head>
+    <meta charset="UTF-8">
+    <title>sign up</title>
 </head>
+
 <body>
+
 <h1>Login</h1>
+<ul>
+ <li><a href="{% url 'dashboard'%}">Home</a></li>
+ <li>Not a member yet? <a href="{% url 'signup'%}">Sign Up<a></li>
+</ul>
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="Login" />
-<input type="hidden" name="next" value="{% url 'login' %}" />
+<input type="hidden" name="next" value="{% url 'dashboard' %}" />
 </form>
-  <p>
-        <a href="{% url 'password_reset' %}">Forgot your password?</a>
-        <a href="{% url 'dashboard' %}">Back to dashboard</a>
-    </p>
+<p>
+  <a href="{% url 'custom_password_reset' %}">Forgot your password?</a>
+</p>
+
 </body>
+
 </html>

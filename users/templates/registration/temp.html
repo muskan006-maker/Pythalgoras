@@ -7,17 +7,13 @@
 </head>
 
 <body>
-
-<h1>Sign Up</h1>
+{% block content %}
+<h1>Password Change Successful</h1>
 <ul>
  <li><a href="{% url 'dashboard'%}">Home</a></li>
- <li><a href="{% url 'login'%}">Login</a></li>
 </ul>
-<form method="post"">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Sign Up" />
-</form>
-</body>
 
+{% endblock %}
+
+</body>
 </html>
