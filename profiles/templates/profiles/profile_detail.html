@@ -1,0 +1,33 @@
+<html>
+<head></head>
+<body>
+{% block content %}
+  <h2>{{ profile.name }}</h2>
+  <p><strong>Location:</strong> {{ profile.location }}</p>
+  <p>{{ profile.opening_paragraph }}</p>
+
+  <h3>Education</h3>
+  <ul>
+    {% if profile.degree_1 %}<li>{{ profile.degree_1 }} - {{ profile.institution_1 }} ({{ profile.year_completed_1 }})</li>{% endif %}
+    {% if profile.degree_2 %}<li>{{ profile.degree_2 }} - {{ profile.institution_2 }} ({{ profile.year_completed_2 }})</li>{% endif %}
+    {% if profile.degree_3 %}<li>{{ profile.degree_3 }} - {{ profile.institution_3 }} ({{ profile.year_completed_3 }})</li>{% endif %}
+  </ul>
+
+  <h3>Work Experience</h3>
+  <ul>
+    {% if profile.job_title_1 %}<li>{{ profile.job_title_1 }} at {{ profile.company_1 }}</li>{% endif %}
+    {% if profile.job_title_2 %}<li>{{ profile.job_title_2 }} at {{ profile.company_2 }}</li>{% endif %}
+    {% if profile.job_title_3 %}<li>{{ profile.job_title_3 }} at {{ profile.company_3 }}</li>{% endif %}
+  </ul>
+
+  <h3>Projects</h3>
+  <ul>
+    {% if profile.project_title_1 %}<li><a href="{{ profile.project_link_1 }}">{{ profile.project_title_1 }}</a></li>{% endif %}
+    {% if profile.project_title_2 %}<li><a href="{{ profile.project_link_2 }}">{{ profile.project_title_2 }}</a></li>{% endif %}
+    {% if profile.project_title_3 %}<li><a href="{{ profile.project_link_3 }}">{{ profile.project_title_3 }}</a></li>{% endif %}
+  </ul>
+
+  <a href="{% url 'edit_profile' %}">Edit Profile</a>
+{% endblock %}
+</body>
+</html>

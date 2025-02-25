@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'firstapp',
     'users',
+    'profiles',
+
 ]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 

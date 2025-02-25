@@ -25,6 +25,6 @@ urlpatterns = [
     path('firstapp/',include("firstapp.urls")),
     #path('dashboard/', views.dashboard, name='dashboard'),
     path('' ,include("users.urls")),
-  
+    path('' ,include('profiles.urls')),
 ]
         
