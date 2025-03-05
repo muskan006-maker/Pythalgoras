@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pythalgoras</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-page.css' %}">
+
+
+ </head>
+<body>
+  <!-- Navigation Bar tags coming from navbar.css -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="nav-tags">Pythalgoras</div>
+        </div>
+        <div class="nav-right">
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="logo">Logout</a>
+	    {% else %}
+                <div class="nav-tags">ai | ml | analytics | genai</div>
+            {% endif %}
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <div class="main-container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

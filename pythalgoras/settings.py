@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'profiles',
 
 ]
+# settings.py
+import os
+
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"),]
+
+
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 MIDDLEWARE = [
@@ -59,7 +65,9 @@ ROOT_URLCONF = 'pythalgoras.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #'DIRS': [], #This was the old line
+        #The new line, it tells django to look for templates in BASE_DIR
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +125,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+import os
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"),]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

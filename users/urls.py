@@ -2,6 +2,7 @@ from django.urls import include, path, reverse_lazy
 from django.contrib.auth import views as auth_views
 from . import views
 urlpatterns = [
+path('login/', views.login_view, name='login'),
 path('password_custom_change/',    
           auth_views.PasswordChangeView.as_view(
           template_name='registration/password_change.html', 
@@ -43,7 +44,7 @@ path('reset/done/',
          name='password_reset_complete'),
 
 
-path("accounts/",include("django.contrib.auth.urls")),
+#path("accounts/",include("django.contrib.auth.urls")),
 path("dashboard/",views.dashboard, name='dashboard'),
 path("signup/",views.signup, name='signup'),
 ]
