@@ -2,34 +2,45 @@
 {% load static %}
 {% block title %}Login | Pythalgoras{% endblock %}
 {% block content %}
-<div class="login-page">
- <div class="login-container">
-  <div class="login-image">
-   <img src="{% static 'images/front-image.webp' %}" alt="Training Portal">
-  </div>
-        <form method="POST" class="login-form">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
-                {{ form.username }}
-            </div>
 
-            <div class="form-group">
-                <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
-                {{ form.password }}
-            </div>
-            <div class="button-group">
-                <button type="submit" class="btn-primary">Login</button>
-            </div>
+<div class="login-page">
+    <div class="login-container">
+
+
+    <div class="login-image">
+        <img src="{% static 'images/front-image.webp' %}" alt="Training Portal">
+    </div>
+
+
+
+
+        <form method="POST" class="login-form">
+           {% csrf_token %}
+           <div class="form-group">
+               <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+               {{ form.username }}
+           </div>
+
+           <div class="form-group">
+               <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+               {{ form.password }}
+           </div>
+
+           <div class="button-group">
+               <button type="submit" class="btn-primary">Login</button>
+           </div>
+
 	 <!-- Dummy Links for Additional Actions -->
-            <div class="login-form-links">
-                <a href="#">Forgot Username/Password?</a></div>
-            <div class="login-form-links">
-                <a href="{% url 'signup'%}">Not a Member? Apply Now!</a>
-            </div>
+           <div class="login-form-links">
+               <a href="{% url 'custom_password_reset' %}">Forgot Username/Password?</a></div>
+           <div class="login-form-links">
+               <a href="{% url 'signup' %}">Not a Member? Apply Now!</a>
+           </div>
         </form>
     </div>
 </div>
+
+
 <!-- Bottom Section -->
 <div class="login-bottom-container">
     <div class="bottom-section">
@@ -61,4 +72,6 @@
 	<p><a href="#">AI Integration</a>, <a href="#">Deployment</a></p>
     </div>
 </div>
+
+
 {% endblock %}

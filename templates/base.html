@@ -4,21 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pythalgoras</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}Pythalgoras Training Portal{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/login-page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/logged-in-navbar.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">  <!-- Ensure this line exists -->
+    <link rel="stylesheet" href="{% static 'css/login-form.css' %}">  <!-- Ensure this line exists -->
+    <link rel="stylesheet" href="{% static 'css/tables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile_details.css' %}"> 
+    <!-- for awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
- </head>
+
+</head>
 <body>
-  <!-- Navigation Bar tags coming from navbar.css -->
+
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-left">
             <div class="nav-tags">Pythalgoras</div>
         </div>
         <div class="nav-right">
             {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="logo">My Profile</a>
                 <a href="{% url 'logout' %}" class="logo">Logout</a>
 	    {% else %}
                 <div class="nav-tags">ai | ml | analytics | genai</div>
@@ -26,10 +36,10 @@
         </div>
     </nav>
 
-
     <!-- Main Content -->
     <div class="main-container">
         {% block content %}{% endblock %}
     </div>
+
 </body>
 </html>

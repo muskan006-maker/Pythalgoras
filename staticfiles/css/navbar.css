@@ -1,0 +1,38 @@
+.navbar {
+    background: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0073b1;
+    text-decoration: none;
+}
+
+.nav-right a {
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background: #0073b1;
+    color: white;
+}
+
+.btn-secondary {
+    background: #e2e2e2;
+    color: black;
+}
+
+.logout-btn {
+    background: red;
+    color: white;
+}

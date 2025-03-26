@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Hamburger Button for Mobile -->
+<div class="logged-in-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        {% if request.user.is_superadmin or request.user.is_admin %}
+        <ul class="sidebar-menu">
+            <li><a href="{% url 'dashboard' %}">Home</a></li>
+            <li><a href="{% url 'signup' %}">Add User</a></li>
+            <li><a href="{% url 'user_management' %}">Add Course</a></li>
+            <li><a href="{% url 'user_management' %}">Add Evals</a></li>
+            <li><a href="{% url 'user_management' %}">Manage Users</a></li>
+            <li><a href="{% url 'user_management' %}">Manage Courses</a></li>
+            <li><a href="{% url 'user_management' %}">Manage Evals</a></li>
+            <li><a href="{% url 'user_management' %}">Other Profiles</a></li>
+        </ul>
+        {% else %}
+        <ul class="sidebar-menu">
+            <li><a href="{% url 'dashboard' %}">Home</a></li>
+            <li><a href="{% url 'profile' %}">Courses</a></li>
+            <li><a href="{% url 'profile' %}">Articles</a></li>
+            <li><a href="{% url 'profile' %}">Network</a></li>
+        </ul>
+        {% endif %}
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        {% block page_content %}{% endblock %}
+    </div>
+</div>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle("show");
+    }
+</script>
+{% endblock %}

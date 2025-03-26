@@ -1,6 +1,10 @@
 from django.contrib import admin
-from .models import Profile
 
 # Register your models here.
-admin.site.register(Profile)
+from django.contrib import admin
+from .models import Profile, Projects, Education, Skill
 
+admin.site.register(Profile)
+admin.site.register(Projects)
+admin.site.register(Education)
+admin.site.register(Skill)

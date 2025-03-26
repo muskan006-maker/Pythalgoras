@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>pythalgoras</title>
-</head>
-
-<body>
-<h1>Pythalgoras</h1>
-{% block content %}   
-  {%if user.is_authenticated%}
-        Hello, {{user.username}} </br>
-        <p>You've successfully logged in</p>
-        {% include "registration/_logout.html" %}
-  {%else%}
-        <ul>
-        <li><a href="{% url 'login'%}">Login</a></li>
-        <li>Not a member yet? <a href="{% url 'signup'%}">Sign Up<a></li>
-        </ul>
-	Hello, Guest <br>
-  {% endif %}
-{% endblock content %}
-</body>
-</html>
+{% extends 'logged_in_base.html' %}
+{% block title %}Dashboard | Pythalgoras{% endblock %}
+{% block page_content %}
+<h2>Welcome to Your Dashboard</h2>
+<p>This is your logged-in area.</p>
+{% endblock %}

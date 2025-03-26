@@ -1,0 +1,25 @@
+{% extends 'logged_in_base.html' %}
+{% block title %}Edit User | Pythalgoras{% endblock %}
+{% block page_content %}
+<h2>Edit User</h2>
+<div class="edit-container">
+    <form method="POST" class="edit-form">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+        {% endfor %}
+
+        <!-- The 'next' parameter is supplied by the calling page -->
+        <!-- At submit/cancel, the 'next' parameter helps us to return back to where we called edit profile -->
+	<input type="hidden" name="next" value="{{next}}">
+
+
+        <div class="button-group">
+            <button type="submit" class="btn-primary">Save Changes</button>
+            <a href="{{next}}" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

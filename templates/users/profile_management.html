@@ -1,0 +1,36 @@
+{% extends 'logged_in_base.html' %}
+{% block title %}Manage Users | Pythalgoras{% endblock %}
+{% block page_content %}
+<h2>Manage Users</h2>
+
+<table class="user-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+	    <td>{{user.first_name}} {{user.last_name}} </td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.get_role_display }}</td>
+            <td>{% if user.is_active %}Active{% else %}Inactive{% endif %}</td>
+            <td>
+                {% if request.user.is_superadmin or request.user.is_admin %}
+    		<a href="{% url 'edit_user' user.id %}?next={{ request.path }}" class="btn-secondary">Edit</a>
+                {% endif %}
+                <a href="{% url 'deactivate_user' user.id %}" class="btn-danger">Deactivate</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

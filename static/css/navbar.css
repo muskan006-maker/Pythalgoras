@@ -1,18 +1,19 @@
-/*Defines the geometry and looks of navigation bar*/
 .navbar {
-    background: white;
+    background: #f4f4f4;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .nav-left .logo {
     font-size: 20px;
     font-weight: bold;
     color: #0073b1;
     text-decoration: none;
 }
+
 .nav-right a {
     margin-left: 15px;
     text-decoration: none;
@@ -20,6 +21,22 @@
     padding: 8px 12px;
     border-radius: 5px;
 }
+
+.nav-btn-primary {
+    background: #0073b1;
+    color: white;
+}
+
+.nav-btn-secondary {
+    background: #e2e2e2;
+    color: black;
+}
+
+.logout-btn {
+    background: red;
+    color: white;
+}
+
 /*The font settings for Nav bar slogans*/
 .nav-tags {
     font-size: 14px;

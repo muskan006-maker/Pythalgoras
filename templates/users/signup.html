@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'logged_in_base.html' %}
+{% block title %}Sign Up | Pythalgoras{% endblock %}
+{% block page_content %}
+<div class="edit-container">
+    <form method="POST" class="edit-form">
+	<center> <i> Create New User </i> </center>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-group">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Pythalgoras</title>
-</head>
-
-<body>
-
-<h1>Sign Up</h1>
-<ul>
- <li><a href="{% url 'dashboard'%}">Home</a></li>
- <li><a href="{% url 'login'%}">Login</a></li>
-</ul>
-<form method="post"">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Sign Up" />
-</form>
-</body>
-
-</html>
+        <button type="submit" class="btn-primary">Create Account</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+/* Login Page Layout */
+.login-page {
+    display: flex;
+    height: 100vh;  /* Full screen height */
+    background: linear-gradient(to top right, khaki 30%, #f9f9f9 100%);
+    align-items: center;
+    width: 100%;  /* Span across the entire width with 5% margins */
+    margin: 0 auto;  /* Centering */
+}
+
+/* Left-aligned Login Container */
+.login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Floating Login Form */
+.login-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2); /* Floating effect */
+    max-width: 350px;
+    width: 100%;
+}
+
+/* Right Side: Image */
+.login-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}

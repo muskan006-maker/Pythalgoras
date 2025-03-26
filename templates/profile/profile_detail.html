@@ -1,0 +1,61 @@
+{% extends 'logged_in_base.html' %}
+{% load static %}
+{% block title %}{{ profile_user.username }}'s Profile{% endblock %}
+{% block page_content %}
+<div class="profile-container">
+    <!-- User Info Section -->
+    <section class="profile-section profile-header">
+        <img src="{{ profile_user.profile_image.url }}" alt="{{ profile_user.username }}'s avatar" class="profile-avatar">
+        <div class="profile-slogan">{{profile.slogan}}</div>
+        <div class="profile-info">
+            <h3>{{ profile_user.first_name }} {{ profile_user.last_name }}</h3>
+            <p>{{ profile.headline }}</p>
+            <p>{{ profile.location_city }}({{ profile.location_state }}), {{profile.location_country}}</p>
+            {% if user.id == profile_user.id %}
+	     <a href="{% url 'edit_profilehead' profile_user.id %}" class="btn bg-transparent p-0 border-0">
+             <i class="fa fa-pencil" style="color: black;"></i>
+	     </a>
+
+
+
+            {% endif %}
+        </div>
+    </section>
+
+
+
+    <!-- Projects Section -->
+    <section class="profile-section">
+        <h2>Projects
+            {% if user.id == profile_user.id %}
+
+	    <a href="{% url 'add_projects' username=profile_user.username %}" class="btn bg-transparent p-0 border-0">
+    	    <i class="fa fa-plus" style="color: black;"></i>
+	    </a>
+
+     {% endif %}
+        </h2>
+        {% if profile.projects_set.exists %}
+        <ul>
+            {% for projects in profile.projects_set.all %}
+            <li class="profile-item">
+                <h3>{{ projects.job_title }}, {{ projects.company }} 
+
+                {% if user.id == profile_user.id %}
+  		<a href="{% url 'edit_projects' projects.id %}?" class="btn bg-transparent p-0 border-0">
+                <i class="fa fa-pencil" style="color: black;"></i></a>  
+		<a href="{% url 'delete_projects' projects.id %}" class="btn btn-transparent" onclick="return confirm('Are you sure you want to delete this projects?');"><i class="fa fa-trash" style="color: black;"></i></a>
+                {% endif %}
+
+		</h3>
+                <p>{{ projects.start_date }} - {{ projects.end_date|default:"Present" }}</p>
+                <p>{{ projects.description }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No projects to display.</p>
+        {% endif %}
+    </section>
+   </div>
+{% endblock %}
